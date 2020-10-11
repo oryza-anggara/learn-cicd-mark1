@@ -1,16 +1,25 @@
-name: CI
-on: [push]
+name: Node CI
+
+on: push
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-        
-      - name: Greeting
-        run: echo "Hello, world!"
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
+        with:
+          persist-credentials: false
 
-      - name: Simulate an error
-        run: echo "About to fail" ; exit 1
+      - name: Install 🔧
+        run: npm install
 
-      - name: Another greeting
-        run: echo "Hello, world!"
+      - name: Lint 🧐
+        run: npm run lint
+
+      - name: Build 🏗️
+        run: npm run build
+
+      - name: Test 🚨
+        run: npm test
