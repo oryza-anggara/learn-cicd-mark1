@@ -1,5 +1,5 @@
 {
-  "name": "First CI app",
+  "name": "first ci app",
   "dependencies": {
     "lodash": "*"
   },
